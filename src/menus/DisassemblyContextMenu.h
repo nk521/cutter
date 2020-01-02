@@ -78,6 +78,8 @@ private slots:
      */
     void on_actionLinkType_triggered();
 
+    void on_actionReanalyzeFunction_triggered();
+
 private:
     QKeySequence getCopySequence() const;
     QKeySequence getCommentSequence() const;
@@ -88,6 +90,7 @@ private:
     QKeySequence getSetToDataExSequence() const;
     QKeySequence getAddFlagSequence() const;
     QKeySequence getRenameSequence() const;
+    QKeySequence getReanalyzeFunctionSequence() const;
     QKeySequence getRenameUsedHereSequence() const;
     QKeySequence getRetypeSequence() const;
     QKeySequence getXRefSequence() const;
@@ -134,6 +137,8 @@ private:
     QAction actionDeleteComment;
     QAction actionDeleteFlag;
     QAction actionDeleteFunction;
+
+    QAction actionReanalyzeFunction;
 
     QMenu *structureOffsetMenu;
 

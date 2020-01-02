@@ -34,6 +34,7 @@ DisassemblyContextMenu::DisassemblyContextMenu(QWidget *parent, MainWindow *main
         actionAddFlag(this),
         actionAnalyzeFunction(this),
         actionEditFunction(this),
+        actionReanalyzeFunction(this),
         actionRename(this),
         actionRenameUsedHere(this),
         actionSetFunctionVarTypes(this),
@@ -95,6 +96,10 @@ DisassemblyContextMenu::DisassemblyContextMenu(QWidget *parent, MainWindow *main
     initAction(&actionEditFunction, tr("Edit function"),
                SLOT(on_actionEditFunction_triggered()), getEditFunctionSequence());
     addAction(&actionEditFunction);
+
+    initAction(&actionReanalyzeFunction, tr("Reanalyze function"),
+               SLOT(on_actionReanalyzeFunction_triggered()), getReanalyzeFunctionSequence());
+    addAction(&actionReanalyzeFunction);
 
     initAction(&actionRenameUsedHere, tr("Rename Flag/Fcn/Var Used Here"),
                SLOT(on_actionRenameUsedHere_triggered()), getRenameUsedHereSequence());
@@ -599,6 +604,10 @@ QKeySequence DisassemblyContextMenu::getUndefineFunctionSequence() const
     return {Qt::Key_U};
 }
 
+QKeySequence DisassemblyContextMenu::getReanalyzeFunctionSequence() const
+{
+    return {}; // TODO: add correct sequence
+}
 
 void DisassemblyContextMenu::on_actionEditInstruction_triggered()
 {
@@ -967,6 +976,11 @@ void DisassemblyContextMenu::on_actionDeleteFlag_triggered()
 void DisassemblyContextMenu::on_actionDeleteFunction_triggered()
 {
     Core()->delFunction(offset);
+}
+
+void DisassemblyContextMenu::on_actionReanalyzeFunction_triggered()
+{
+    Core()->reanalyzeFunction(offset);
 }
 
 void DisassemblyContextMenu::on_actionEditFunction_triggered()

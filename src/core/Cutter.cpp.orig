@@ -573,18 +573,6 @@ void CutterCore::renameFunction(const QString &oldName, const QString &newName)
     emit functionRenamed(oldName, newName);
 }
 
-void CutterCore::reanalyzeFunction(RVA addr)
-{
-    RVA temp;
-    temp = getFunctionStart(addr);
-    eprintf("\n%s\n", RAddressString(temp).toUtf8().constData());
-    // cmd("aaa");
-    // cmd("af- @ " + RAddressString(temp) + "; af @ " + RAddressString(temp));
-    cmd("af- @ " + RAddressString(temp));
-    cmd("af @ " + RAddressString(temp));
-    triggerRefreshAll();
-}
-
 void CutterCore::delFunction(RVA addr)
 {
     cmd("af- " + RAddressString(addr));
@@ -621,7 +609,7 @@ QString CutterCore::getInstructionOpcode(RVA addr)
 
 void CutterCore::editInstruction(RVA addr, const QString &inst)
 {
-    cmd("wa " + inst + " @ " + RAddressString(addr));
+    cmd("\"wa " + inst + "\" @ " + RAddressString(addr));
     emit instructionChanged(addr);
 }
 
