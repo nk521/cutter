@@ -49,6 +49,7 @@
 #include "widgets/SdbWidget.h"
 #include "widgets/Omnibar.h"
 #include "widgets/ConsoleWidget.h"
+#include "widgets/IPythonWidget.h"
 #include "widgets/EntrypointWidget.h"
 #include "widgets/ClassesWidget.h"
 #include "widgets/ResourcesWidget.h"
@@ -292,6 +293,7 @@ void MainWindow::initDocks()
     dockWidgets.reserve(20);
     decompilerDock = new DecompilerWidget(this, ui->actionDecompiler);
     consoleDock = new ConsoleWidget(this, ui->actionConsole);
+    ipythonDock = new IPythonWidget(this, ui->actionIPython);
 
     overviewDock = new OverviewWidget(this, ui->actionOverview);
     overviewDock->hide();
@@ -835,6 +837,7 @@ void MainWindow::restoreDocks()
     addDockWidget(Qt::BottomDockWidgetArea, consoleDock);
 
     // Console | Sections
+    splitDockWidget(consoleDock, ipythonDock, Qt::Horizontal);
     splitDockWidget(consoleDock, sectionsDock, Qt::Horizontal);
     splitDockWidget(consoleDock, segmentsDock, Qt::Horizontal);
 

@@ -178,6 +178,7 @@
     <addaction name="separator"/>
     <addaction name="actionComments"/>
     <addaction name="actionConsole"/>
+    <addaction name="actionIPython"/>
     <addaction name="separator"/>
     <addaction name="menuPlugins"/>
    </widget>
@@ -908,6 +909,14 @@
    </property>
    <property name="text">
     <string>Console</string>
+   </property>
+  </action>
+  <action name="actionIPython">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>IPython Console</string>
    </property>
   </action>
   <action name="actionStack">

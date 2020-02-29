@@ -35,6 +35,7 @@ class QAction;
 class SectionsWidget;
 class SegmentsWidget;
 class ConsoleWidget;
+class IPythonWidget;
 class EntrypointWidget;
 class DisassemblerGraphView;
 class ClassesWidget;
@@ -256,6 +257,7 @@ private:
     SegmentsWidget     *segmentsDock = nullptr;
     ZignaturesWidget   *zignaturesDock = nullptr;
     ConsoleWidget      *consoleDock = nullptr;
+    IPythonWidget      *ipythonDock = nullptr;
     ClassesWidget      *classesDock = nullptr;
     ResourcesWidget    *resourcesDock = nullptr;
     VTablesWidget      *vTablesDock = nullptr;

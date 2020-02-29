@@ -286,6 +286,7 @@ SOURCES += \
     common/AnalTask.cpp \
     widgets/CommentsWidget.cpp \
     widgets/ConsoleWidget.cpp \
+    widgets/IPythonWidget.cpp \
     widgets/Dashboard.cpp \
     widgets/EntrypointWidget.cpp \
     widgets/ExportsWidget.cpp \
@@ -424,6 +425,7 @@ HEADERS  += \
     common/AnalTask.h \
     widgets/CommentsWidget.h \
     widgets/ConsoleWidget.h \
+    widgets/IPythonWidget.h \
     widgets/Dashboard.h \
     widgets/EntrypointWidget.h \
     widgets/ExportsWidget.h \
@@ -553,6 +555,7 @@ FORMS    += \
     dialogs/EditFunctionDialog.ui \
     core/MainWindow.ui \
     widgets/ConsoleWidget.ui \
+    widgets/IPythonWidget.ui \
     widgets/Dashboard.ui \
     widgets/EntrypointWidget.ui \
     widgets/FlagsWidget.ui \

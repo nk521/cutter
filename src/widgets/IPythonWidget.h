@@ -17,7 +17,19 @@ public:
 	explicit IPythonWidget(MainWindow *main, QAction *action = nullptr);
 	~IPythonWidget();
 
+public slots:
+    void focusInputLineEdit();
+
+    void addOutput(const QString &msg);
+
+private slots:
+	void setupFont();
+
+	void on_ipythonLineEdit_returnPressed();
+	void on_execButton_clicked();
+
 private:
+	void scrollOutputToEnd();
     std::unique_ptr<Ui::IPythonWidget> ui;
 
 };
