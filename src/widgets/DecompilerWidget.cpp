@@ -105,6 +105,9 @@ DecompilerWidget::DecompilerWidget(MainWindow *main, QAction *action) :
     seekPrevAction->setShortcutContext(Qt::WidgetWithChildrenShortcut);
     addAction(seekPrevAction);
     connect(seekPrevAction, &QAction::triggered, seekable, &CutterSeekable::seekPrev);
+    
+    mCtxMenu->addSeparator();
+    mCtxMenu->addAction(&syncAction);
 }
 
 DecompilerWidget::~DecompilerWidget() = default;

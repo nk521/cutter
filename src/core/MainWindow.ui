@@ -172,6 +172,7 @@
     <addaction name="actionExtraDisassembly"/>
     <addaction name="actionExtraGraph"/>
     <addaction name="actionExtraHexdump"/>
+    <addaction name="actionExtraDecompiler"/>
     <addaction name="separator"/>
     <addaction name="menuAddInfoWidgets"/>
     <addaction name="menuAddDebugWidgets"/>
@@ -1073,6 +1074,11 @@
   <action name="actionExtraGraph">
    <property name="text">
     <string>Add Graph</string>
+   </property>
+  </action>
+  <action name="actionExtraDecompiler">
+   <property name="text">
+    <string>Add Decompiler</string>
    </property>
   </action>
   <action name="actionGrouped_dock_dragging">

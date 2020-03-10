@@ -139,6 +139,7 @@ void MainWindow::initUI()
     connect(ui->actionExtraGraph, &QAction::triggered, this, &MainWindow::addExtraGraph);
     connect(ui->actionExtraDisassembly, &QAction::triggered, this, &MainWindow::addExtraDisassembly);
     connect(ui->actionExtraHexdump, &QAction::triggered, this, &MainWindow::addExtraHexdump);
+    connect(ui->actionExtraDecompiler, &QAction::triggered, this, &MainWindow::addExtraDecompiler);
 
     widgetTypeToConstructorMap.insert(GraphWidget::getWidgetType(), getNewInstance<GraphWidget>);
     widgetTypeToConstructorMap.insert(DisassemblyWidget::getWidgetType(), getNewInstance<DisassemblyWidget>);
@@ -400,6 +401,12 @@ void MainWindow::addExtraHexdump()
 void MainWindow::addExtraDisassembly()
 {
     auto *extraDock = new DisassemblyWidget(this, nullptr);
+    addExtraWidget(extraDock);
+}
+
+void MainWindow::addExtraDecompiler()
+{
+    auto *extraDock = new DecompilerWidget(this, nullptr);
     addExtraWidget(extraDock);
 }
 
@@ -957,6 +964,7 @@ QMenu *MainWindow::createShowInMenu(QWidget *parent, RVA address)
     createAddNewWidgetAction(tr("New disassembly"), MemoryWidgetType::Disassembly);
     createAddNewWidgetAction(tr("New graph"), MemoryWidgetType::Graph);
     createAddNewWidgetAction(tr("New hexdump"), MemoryWidgetType::Hexdump);
+    createAddNewWidgetAction(tr("New decompiler"), MemoryWidgetType::Decompiler);
 
     return menu;
 }
