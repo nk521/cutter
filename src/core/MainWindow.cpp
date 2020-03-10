@@ -291,7 +291,6 @@ void MainWindow::initToolBar()
 void MainWindow::initDocks()
 {
     dockWidgets.reserve(20);
-    decompilerDock = new DecompilerWidget(this, ui->actionDecompiler);
     consoleDock = new ConsoleWidget(this, ui->actionConsole);
 
     overviewDock = new OverviewWidget(this, ui->actionOverview);
@@ -808,7 +807,6 @@ void MainWindow::restoreDocks()
 
     // Function | Dashboard
     splitDockWidget(functionsDock, dashboardDock, Qt::Horizontal);
-    tabifyDockWidget(dashboardDock, decompilerDock);
     tabifyDockWidget(dashboardDock, entrypointDock);
     tabifyDockWidget(dashboardDock, flagsDock);
     tabifyDockWidget(dashboardDock, stringsDock);

@@ -895,14 +895,6 @@
     <string>Graph Overview</string>
    </property>
   </action>
-  <action name="actionDecompiler">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Decompiler</string>
-   </property>
-  </action>
   <action name="actionConsole">
    <property name="checkable">
     <bool>true</bool>
