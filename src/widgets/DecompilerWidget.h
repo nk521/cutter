@@ -27,6 +27,8 @@ protected:
 public:
     explicit DecompilerWidget(MainWindow *main, QAction *action = nullptr);
     ~DecompilerWidget();
+    static QString getWidgetType();
+    
 public slots:
     void showDisasContextMenu(const QPoint &pt);
 

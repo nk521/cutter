@@ -144,6 +144,7 @@ void MainWindow::initUI()
     widgetTypeToConstructorMap.insert(GraphWidget::getWidgetType(), getNewInstance<GraphWidget>);
     widgetTypeToConstructorMap.insert(DisassemblyWidget::getWidgetType(), getNewInstance<DisassemblyWidget>);
     widgetTypeToConstructorMap.insert(HexdumpWidget::getWidgetType(), getNewInstance<HexdumpWidget>);
+    widgetTypeToConstructorMap.insert(DecompilerWidget::getWidgetType(), getNewInstance<DecompilerWidget>);
 
     initToolBar();
     initDocks();
@@ -341,7 +342,8 @@ void MainWindow::initDocks()
     QStringList docks = s.value("docks", QStringList {
         DisassemblyWidget::getWidgetType(),
         GraphWidget::getWidgetType(),
-        HexdumpWidget::getWidgetType()
+        HexdumpWidget::getWidgetType(),
+        DecompilerWidget::getWidgetType()
     }).toStringList();
 
     // Restore all extra widgets
@@ -922,6 +924,8 @@ void MainWindow::showMemoryWidget()
         }
     }
     showMemoryWidget(MemoryWidgetType::Disassembly);
+    showMemoryWidget(MemoryWidgetType::Decompiler);
+
 }
 
 void MainWindow::showMemoryWidget(MemoryWidgetType type)
@@ -1177,7 +1181,8 @@ void MainWindow::showZenDocks()
         if (zenDocks.contains(w) ||
             qobject_cast<GraphWidget*>(w) ||
             qobject_cast<HexdumpWidget*>(w) ||
-            qobject_cast<DisassemblyWidget*>(w)) {
+            qobject_cast<DisassemblyWidget*>(w) ||
+            qobject_cast<DecompilerWidget*>(w)) {
             w->show();
         }
     }
@@ -1203,7 +1208,8 @@ void MainWindow::showDebugDocks()
         if (debugDocks.contains(w) ||
             qobject_cast<GraphWidget*>(w) ||
             qobject_cast<HexdumpWidget*>(w) ||
-            qobject_cast<DisassemblyWidget*>(w)) {
+            qobject_cast<DisassemblyWidget*>(w) ||
+            qobject_cast<DecompilerWidget*>(w)) {
             w->show();
         }
     }

@@ -9,6 +9,8 @@
 #include "common/Decompiler.h"
 #include "common/CutterSeekable.h"
 
+#include "core/MainWindow.h"
+
 #include <QTextEdit>
 #include <QPlainTextEdit>
 #include <QTextBlock>
@@ -21,6 +23,9 @@ DecompilerWidget::DecompilerWidget(MainWindow *main, QAction *action) :
     ui(new Ui::DecompilerWidget)
 {
     ui->setupUi(this);
+    setObjectName(main
+                  ? main->getUniqueObjectName(getWidgetType())
+                  : getWidgetType());
 
     syntaxHighlighter = Config()->createSyntaxHighlighter(ui->textEdit->document());
 
@@ -108,6 +113,8 @@ DecompilerWidget::DecompilerWidget(MainWindow *main, QAction *action) :
     
     mCtxMenu->addSeparator();
     mCtxMenu->addAction(&syncAction);
+    connect(seekable, &CutterSeekable::seekableSeekChanged, this, &DecompilerWidget::seekChanged);
+    addActions(mCtxMenu->actions());
 }
 
 DecompilerWidget::~DecompilerWidget() = default;
@@ -317,6 +324,11 @@ void DecompilerWidget::updateSelection()
 QString DecompilerWidget::getWindowTitle() const
 {
     return tr("Decompiler");
+}
+
+QString DecompilerWidget::getWidgetType()
+{
+    return "Decompiler";
 }
 
 void DecompilerWidget::fontsUpdatedSlot()
